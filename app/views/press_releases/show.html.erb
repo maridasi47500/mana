@@ -1,0 +1,48 @@
+
+			<p class="breadcrumbs">
+	<!-- Breadcrumb NavXT 5.4.0 -->
+<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to %accueil%." href="https://www.mairie-mana.fr" class="home"><span property="name">Accueil </span></a><meta property="position" content="1"></span> / <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to Actualités." href="https://www.mairie-mana.fr/actualites/" class="post-root post post-post"><span property="name">Actualités</span></a><meta property="position" content="2"></span> / <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to the communiqués  category archives." href="https://www.mairie-mana.fr/category/communiques/" class="taxonomy category"><span property="name">communiqués </span></a><meta property="position" content="3"></span> / <span property="itemListElement" typeof="ListItem"><span property="name">FERMETURE EXCEPTIONNELLE DU BUREAU DE POSTE DE MANA ET DE JAVOUHEY LE MERCREDI 21 SEPTEMBRE 2022</span><meta property="position" content="4"></span></p>
+		
+		<div class="post-image">
+
+						
+							<div class="image-holder ">
+					<a href="">
+						<img src="<%=@post.image%>" alt="">
+					</a>
+				</div>
+			
+<div class="feature-event">
+		
+			<p class="feature-event-date">
+			<%=l(@post.date, format: :eventdate)%>		</p>
+		
+				
+</div><!-- /.article-meta -->
+
+		</div><!-- /.post-image -->
+
+		<div class="post">
+			<h1><%=@post.title%></h1>
+<%=@post.content.html_safe%>
+
+	
+
+					</div><!-- /.post -->
+		
+					<section class="section-comments" id="comments">
+
+			
+		<h3>Pas de réponse</h3>
+                <%if @post.comments.length > 0%>
+		<ol class="comments">
+			<%=render partial: "news/comment",as: :comment,collection: @post.comments%>
+		</ol>
+                <%end%>
+
+		
+	
+					<%=render "press_releases/formcomment",post: @post%>
+		
+</section>
+				

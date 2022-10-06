@@ -1,0 +1,14 @@
+
+			<p class="breadcrumbs">
+	<!-- Breadcrumb NavXT 5.4.0 -->
+<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to %accueil%." href="https://www.mairie-mana.fr" class="home"><span property="name">Accueil </span></a><meta property="position" content="1"></span> / <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to ÉVÉNEMENTS." href="https://www.mairie-mana.fr/evenements/" class="post post-page"><span property="name">ÉVÉNEMENTS</span></a><meta property="position" content="2"></span> / <span property="itemListElement" typeof="ListItem"><span property="name">AGENDA</span><meta property="position" content="3"></span></p>
+<div class="section-features clearfix">
+	
+<%=render collection: @events, as: :event, partial: "events/event"%>
+
+		
+	<a href="https://www.mairie-mana.fr/actualites/" class="btn-green">
+		Voir toutes les actualités	</a>
+</div>
+
+<%=render "events/paginationevent"%>	

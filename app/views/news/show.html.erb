@@ -1,0 +1,54 @@
+
+			<p class="breadcrumbs">
+	<!-- Breadcrumb NavXT 5.4.0 -->
+<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to %accueil%." href="https://www.mairie-mana.fr" class="home"><span property="name">Accueil </span></a><meta property="position" content="1"></span> / <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to Actualités." href="https://www.mairie-mana.fr/actualites/" class="post-root post post-post"><span property="name">Actualités</span></a><meta property="position" content="2"></span> / <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to the Vie de la commune category archives." href="https://www.mairie-mana.fr/category/ateliers-et-chantiers-dinsertion/" class="taxonomy category"><span property="name">Vie de la commune</span></a><meta property="position" content="3"></span> / <span property="itemListElement" typeof="ListItem"><span property="name"><%=@news.title%></span><meta property="position" content="4"></span></p>
+		
+		<div class="post-image">
+
+						
+							<div class="image-holder ">
+					<a href="">
+						<img src="<%=@news.image%>" alt="">
+					</a>
+				</div>
+			
+<div class="feature-event">
+		
+			<p class="feature-event-date">
+			<%=l(@news.date,format: :newsdate)%>		</p>
+		
+				
+</div><!-- /.article-meta -->
+
+		</div><!-- /.post-image -->
+
+		<div class="post">
+			<h1><%=@news.title%></h1>
+
+<%=@news.content.html_safe%>
+<%if @news.images.length > 0%>
+<div id='gallery-1' class='gallery galleryid-9674 gallery-columns-3 gallery-size-thumbnail'>
+<%=render partial: "news/pic",collection: @news.images,as: :pic%>
+
+		</div>
+<%end%>
+
+	
+
+					</div><!-- /.post -->
+		
+					<section class="section-comments" id="comments">
+
+			
+		<h3>One Réponse</h3>
+
+		<ol class="comments">
+				<%=render collection: @news.comments,as: :comment,partial: "news/comment"%>
+		</ol>
+
+		
+	
+					<%=render "news/formcomment",news: @news%>
+		
+</section>
+				

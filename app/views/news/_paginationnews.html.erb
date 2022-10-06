@@ -1,0 +1,40 @@
+<div class="wp-pagenavi">
+<span class="pages">Page <%=params[:page].to_i == 0 ? 1 : params[:page]%> sur <%=(News.all.length.to_f / 5.0).ceil%></span>
+
+
+<a class="first" href="/actualites/">First</a>
+<%if params[:page].to_i > 1%>
+<a class="previouspostslink" rel="prev" href="<%=allnewsp_path(page: (params[:page].to_i - 1))%>">&lt;</a><span class="extend">...</span>
+
+<%(0..(params[:page].to_i - 2)).step(10).to_a.without(0).each do |a|%>
+<%=link_to a, allnewsp_path(page: a), {class: "smaller page"}%>
+
+<%end%>
+<span class="extend">...</span>
+<%end%>
+
+<%((params[:page].to_i - 2)..(params[:page].to_i + 2)).select{|x|x > 1}.each do |n|%>
+<%=link_to_unless_current n, allnewsp_path(page: n), {class: "page smaller"} do
+("<span class=\"current\">#{n}</span>").html_safe
+end%>
+
+
+<%end%>
+
+<span class="extend">...</span>
+<%if (params[:page].to_i + 3).to_f.ceil(1).to_i < (News.all.length/5 - 1)%>
+<%((params[:page].to_i + 3).to_f.ceil(1).to_i..(News.all.length/5 - 1)).without((params[:page].to_i + 3).to_f.ceil(1).to_i).each do |n|%>
+
+<%=link_to n, allnewsp_path(page: n), {class: "larger page"}%>
+
+
+
+<%end%>
+<%end%>
+<span class="extend">...</span>
+
+<%if (News.all.length / 5 - 1) != params[:page].to_i%>
+<a class="nextpostslink" rel="next" href="<%=allnewsp_path(page: (params[:page].to_i + 1))%>">&gt;</a>
+<%end%>
+<a class="last" href="<%=allnewsp_path(page: (News.all.length.to_f / 5.0).ceil)%>">Last</a>
+</div>

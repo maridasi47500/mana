@@ -1,0 +1,31 @@
+<li class="comment even thread-even depth-1" id="li-comment-<%=comment.id%>">
+		<div id="comment-<%=comment.id%>" class="comment-entry">
+			
+			<div class="comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/7079bd2c9912868e21b6db2fbb1743c7?s=48&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/7079bd2c9912868e21b6db2fbb1743c7?s=96&amp;d=mm&amp;r=g 2x' class='avatar avatar-48 photo' height='48' width='48' />					<span class="author-name">
+						<%=comment.name%>					</span>
+				<span class="says">says:</span>
+			</div>
+<%if !comment.validated %>
+<em class="moderation-notice">Your comment is awaiting moderation.</em>
+<%end%>
+					
+			<div class="comment-meta">
+				<a href="<%if comment.news.length > 0%><%=news_path(title:comment.news[0].url,anchor: "comment-#{comment.id}")%><%end%>">
+					<%=l(comment.created_at,format: :comment)%>				</a>
+							</div>
+			
+			<div class="comment-text">
+				<%=simple_format(comment.message)%>
+			</div>
+	
+			<div class="comment-reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://www.mairie-mana.fr/mana-fete-sport-culture/?replytocom=<%=comment.id%>#respond' onclick='return addComment.moveForm( "comment-<%=comment.id%>", "<%=comment.id%>", "respond", "9674" )' aria-label='Répondre à Moreno Nadège'>Répondre</a>			</div>
+		</div>
+	</li><!-- #comment-## -->
+
+<%if comment.comments.length > 0%>
+<ul class="children">
+<%=render collection: comment.comments, as: :comment, partial: "news/comment"%>
+</ul>
+<%end%>

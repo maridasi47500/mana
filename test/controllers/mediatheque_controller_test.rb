@@ -1,0 +1,14 @@
+require 'test_helper'
+
+class MediathequeControllerTest < ActionDispatch::IntegrationTest
+  test "should get photo" do
+    get mediatheque_photo_url
+    assert_response :success
+  end
+
+  test "should get video" do
+    get mediatheque_video_url
+    assert_response :success
+  end
+
+end

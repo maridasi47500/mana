@@ -1,0 +1,23 @@
+<div class="section-feature clearfix  <%if news_counter == 0%>section-feature-full<%else%>normal<%end%>">
+			<div class="feature-image">
+			<a href="<%=news_path(title: news.url)%>">
+				<img src="<%=news.image%>" alt="">
+			</a>
+		</div>
+				
+	<div class="entry">
+		
+		<h1>
+			<a href="<%=news_path(title: news.url)%>">
+				<%=news.title%>			</a>
+		</h1>
+		
+		<p class="feature-date">
+				<%=l(news.date,format: :featuredate)%>			
+                </p><!-- /.feature-date -->
+				
+		<p><%=strip_tags(news.content).truncate(105,separator: " ")%></p>
+		
+			</div><!-- /.entry -->
+</div><!-- /.section-feature -->
+

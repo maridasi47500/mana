@@ -1,0 +1,18 @@
+
+<li class="slide">
+                                                                        <a href="<%=event_path(title: event.url)%>">
+                        <div class="slide-image">
+                                <img width="684" height="1097" src="<%=event.image%>" class="attachment-slider-agenda size-slider-agenda" alt="evenement-agricole" srcset="" />									</div><!-- /.slide-image -->
+                </a>
+
+        <div class="slide-content">
+                <a href="<%=event_path(title: event.url)%>"><h5><%=event.title%></h5></a>
+
+                <p><%=strip_tags(event.content).truncate(110,separator: " ")%></p>
+
+                <p class="slide-date">
+                        <a href="<%=event_path(title: event.url)%>">
+                        <%=l(event.begindate,format: :eventbegindate)%>									</a>
+                </p><!-- /.slide-date -->
+        </div><!-- /.slide-content -->
+</li><!-- /.slide -->

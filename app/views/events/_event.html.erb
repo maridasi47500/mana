@@ -1,0 +1,28 @@
+<div class="section-feature clearfix  <%=event_counter == 0 ? "section-feature-full" : "normal"%>">
+			<div class="feature-image">
+			<a href="<%=event_path(title: event.url)%>">
+				<img src="<%=event.image%>" alt="">
+			</a>
+		</div>
+				
+	<div class="entry">
+					
+<div class="feature-event">
+		
+						<p class="post-date">
+				 Du <%=l(event.begindate,format: :eventdate).titleize%> au <%=l(event.enddate,format: :eventdate).titleize%>			</p>
+			
+		
+				
+</div><!-- /.article-meta -->
+		
+		<h1>
+			<a href="<%=event_path(title: event.url)%>">
+				<%=event.title%>			</a>
+		</h1>
+		
+				
+		<p><%=strip_tags(event.content).truncate(110,separator: " ")%></p>
+		
+			</div><!-- /.entry -->
+</div><!-- /.section-feature -->

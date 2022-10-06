@@ -1,0 +1,15 @@
+
+			<p class="breadcrumbs">
+	<!-- Breadcrumb NavXT 5.4.0 -->
+<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to %accueil%." href="https://www.mairie-mana.fr" class="home"><span property="name">Accueil </span></a><meta property="position" content="1"></span> / <span property="itemListElement" typeof="ListItem"><span property="name">Video Archive</span><meta property="position" content="2"></span></p>
+
+
+<div class="archive-gallery archive-gallery-large">
+	<ul class="archive-gallery clearfix">
+<%=render partial: "mediatheque/video",as: :video,collection: @videos%>
+			</ul>
+
+	<%=render "mediatheque/navivideo"%>
+
+
+</div>
